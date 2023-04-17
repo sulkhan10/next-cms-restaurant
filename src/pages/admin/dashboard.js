@@ -1,5 +1,7 @@
 import AdminLayout from "@/components/layouts/AdminLayout";
 import Header from "@/components/organisms/Header";
+import AnalyticsCard from "@/components/molecules/AnalyticsCard";
+import TopMenuCard from "@/components/molecules/TopMenuCard";
 import {
   FiSearch,
   FiFilter,
@@ -10,7 +12,6 @@ import {
   FiEye,
 } from "react-icons/fi";
 import { FaSort } from "react-icons/fa";
-import Image from "next/image";
 export default function Dashboard() {
   const customerData = [
     {
@@ -137,7 +138,7 @@ export default function Dashboard() {
                 </div>
               </div>
             </div>
-            <table className="w-full border-collapse text-sm text-gray-600 mt-4 ">
+            <table className="w-full border-collapse text-sm text-gray-800 mt-4 font-semibold ">
               <thead>
                 <tr className="bg-gray-100 text-left border-b-2  border-gray-200 ">
                   <th className="px-4 py-1 rounded-tl-xl ">
@@ -180,52 +181,52 @@ export default function Dashboard() {
                   return (
                     <tr
                       key={index}
-                      className="border-b border-gray-200 hover:bg-gray-100 text-gray-900 "
+                      className="border-b border-gray-200 hover:bg-gray-100 "
                     >
                       <td className="px-4 py-2 whitespace-no-wrap">
                         {item.customerName}
                       </td>
                       <td className="px-4 py-2 whitespace-no-wrap">
                         {item.level === "Warga" ? (
-                          <span className="text-[#F46B45] bg-[#FEFBF6] rounded-l px-4 py-1">
+                          <span className="text-[#F46B45] bg-[#FEFBF6] rounded-l px-4 py-2">
                             {item.level}
                           </span>
                         ) : item.level === "Juragan" ? (
-                          <span className="text-[#2F80ED] bg-[#F6FCFE] rounded-l px-4 py-1">
+                          <span className="text-[#2F80ED] bg-[#F6FCFE] rounded-l px-4 py-2">
                             {item.level}
                           </span>
                         ) : item.level === "Konglomerat" ? (
-                          <span className="text-[#7F00FF] bg-[#FEF5FF] rounded-l px-4 py-1">
+                          <span className="text-[#7F00FF] bg-[#FEF5FF] rounded-l px-4 py-2">
                             {item.level}
                           </span>
                         ) : item.level === "Sultan" ? (
-                          <span className="text-[#11998E] bg-[#F6FEF9] rounded-l px-4 py-1">
+                          <span className="text-[#11998E] bg-[#F6FEF9] rounded-l px-4 py-2">
                             {item.level}
                           </span>
                         ) : (
                           item.level
                         )}
                       </td>
-                      <td className="px-4 py-1 whitespace-no-wrap">
+                      <td className="px-4 py-2 whitespace-no-wrap">
                         {item.favoriteMenu}
                       </td>
-                      <td className="px-4 py-1 whitespace-no-wrap">
+                      <td className="px-4 py-2 whitespace-no-wrap">
                         {item.totalTransaction}
                       </td>
-                      <td className="px-4 py-1 whitespace-no-wrap flex justify-between">
+                      <td className="px-4 py-2 whitespace-no-wrap flex justify-between">
                         <button className="">
-                          <div className="flex gap-4 bg-[#FAFAFA] px-4 py-1 rounded-lg">
+                          <div className="flex gap-4 bg-[#FAFAFA] px-4 py-2 rounded-lg">
                             <FiEye size={20} />
                             <h1>Detail</h1>
                           </div>
                         </button>
                         <button className="">
-                          <div className="flex gap-4 bg-[#FAFAFA] px-4 py-1 rounded-lg">
+                          <div className="flex gap-4 bg-[#FAFAFA] px-4 py-2 rounded-lg">
                             <FiEdit size={20} />
                           </div>
                         </button>
                         <button className="">
-                          <div className="flex gap-4 bg-[#FEF5F6] px-4 py-1 rounded-lg">
+                          <div className="flex gap-4 bg-[#FEF5F6] px-4 py-2 rounded-lg">
                             <FiTrash size={20} color="#F02D3A" />
                           </div>
                         </button>
@@ -253,56 +254,8 @@ export default function Dashboard() {
             <div className="h-8"></div>
           </div>
           <div className="w-1/5  bg-gray-50 h-full pr-4  hidden lg:block">
-            <div className="bg-[#5D5FEF] px-5 py-2 rounded-xl flex flex-col justify-between relative">
-              <div>
-                <h1 className="text-md">See analytics of</h1>
-                <h1 className="text-md">the Customer</h1>
-                <h1 className="text-md mb-4">Clearly</h1>
-              </div>
-              <button className="bg-white text-md z-50 bg-opacity-20 backdrop-blur-sm flex gap-2 items-center justify-center py-2 rounded-lg w-32 ">
-                See Analitycs
-              </button>
-              <div className="absolute bottom-0 right-0">
-                <div className="bg-[#5D5FEF] border-[#A5A6F6] border-2 absolute bottom-0 right-0 rounded-tl-full w-32 h-32 rounded-br-3xl"></div>
-              </div>
-              <div className="absolute bottom-0 right-0">
-                <div className="bg-[#7879F1] border-[#F2F2F2] border-2 absolute bottom-0 right-0 rounded-tl-full w-20 h-20 rounded-br-3xl"></div>
-              </div>
-              <div className="absolute bottom-0 right-0">
-                <div className="bg-[#A5A6F6] border-[#F2F2F2] border-2 absolute bottom-0 right-0 rounded-tl-full rounded-br-3xl w-10 h-10"></div>
-              </div>
-            </div>
-            <div className=" bg-gray-100 mt-2 rounded-xl  text-gray-800">
-              <div className="py-2 px-4">
-                <div className="text-lg font-semibold">Top Menu</div>
-                <div className="text-lg font-semibold text-[#F17300]">
-                  This Week
-                </div>
-                <div className="text-sm py-2">10 - 12 Agustus 2023</div>
-                <div className="relative">
-                  <div className="px-4 py-2 bg-white shadow-md font-semibold text-sm rounded-lg  transform rotate-1">
-                    Nasi Goreng Jamur Special Resto Pak Min
-                  </div>
-                  <div className="absolute -top-2 -right-3 mt-1 mr-1 bg-gray-700 text-gray-50 font-semibold text-xs  w-6 h-6 flex items-center justify-center rotate-12">
-                    1
-                  </div>
-                  <div className="absolute -top-3 -right-2 mt-1 mr-1 bg-[#F17300] text-gray-50 font-semibold text-xs  w-6 h-6 flex items-center justify-center rotate-12">
-                    1
-                  </div>
-                </div>
-                <div className="text-sm py-2">2. Tongseng Sapi Gurih</div>
-                <div className="text-sm py-2">3. Nasi Gudeg Telur Ceker</div>
-                <div className="text-sm py-2">4. Nasi Ayam serundeng</div>
-                <div className="text-sm py-2">5. Nasi Goreng Seafood</div>
-              </div>
-                <Image
-                  src="/graph.png"
-                  className="w-full"
-                width={500}
-                
-                height={500}
-                />
-            </div>
+            <AnalyticsCard />
+            <TopMenuCard />
           </div>
         </div>
       </AdminLayout>
