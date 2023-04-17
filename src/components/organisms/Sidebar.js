@@ -4,11 +4,11 @@ import SidebarProfile from "../molecules/SidebarProfile";
 
 function Sidebar() {
   return (
-    <div className="w-full max-w-xs h-screen bg-gray-50  overflow-auto scrollbar-hide flex flex-col justify-between border-r-2" >
-      <div className="pb-4 scrollbar-hide">
+    <div className="w-full max-w-[250px] h-screen bg-gray-50  overflow-auto scrollbar-hide flex flex-col justify-between border-r-2" >
+      <div className="pb-2 scrollbar-hide">
         <SidebarMenu />
       </div>
-      <div className="pb-4 scrollbar-hide">
+      <div className="pb-2 scrollbar-hide">
       <SidebarProfile />
       </div>
     </div>
