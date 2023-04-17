@@ -1,7 +1,79 @@
 import AdminLayout from "@/components/layouts/AdminLayout";
 import Header from "@/components/organisms/Header";
-import { FiSearch,FiFilter,FiRefreshCw,FiPrinter ,FiEdit,FiTrash,FiEye} from "react-icons/fi";
+import {
+  FiSearch,
+  FiFilter,
+  FiRefreshCw,
+  FiPrinter,
+  FiEdit,
+  FiTrash,
+  FiEye,
+} from "react-icons/fi";
+import { FaSort } from "react-icons/fa";
 export default function Dashboard() {
+  const customerData = [
+    {
+      customerName: "John Doe",
+      level: "Sultan",
+      favoriteMenu: "Burger",
+      totalTransaction: "$500",
+    },
+    {
+      customerName: "Jane Smith",
+      level: "Warga",
+      favoriteMenu: "Pizza",
+      totalTransaction: "$250",
+    },
+    {
+      customerName: "Michael Brown",
+      level: "Juragan",
+      favoriteMenu: "Sushi",
+      totalTransaction: "$150",
+    },
+    {
+      customerName: "Sarah Johnson",
+      level: "Konglomerat",
+      favoriteMenu: "Steak",
+      totalTransaction: "$1000",
+    },
+    {
+      customerName: "David Lee",
+      level: "Sultan",
+      favoriteMenu: "Fish and Chips",
+      totalTransaction: "$350",
+    },
+    {
+      customerName: "Emily Davis",
+      level: "Warga",
+      favoriteMenu: "Salad",
+      totalTransaction: "$200",
+    },
+    {
+      customerName: "Daniel Wilson",
+      level: "Juragan",
+      favoriteMenu: "Pasta",
+      totalTransaction: "$100",
+    },
+    {
+      customerName: "Olivia Smith",
+      level: "Konglomerat",
+      favoriteMenu: "Tacos",
+      totalTransaction: "$800",
+    },
+    {
+      customerName: "Matthew Johnson",
+      level: "Sultan",
+      favoriteMenu: "Sushi",
+      totalTransaction: "$450",
+    },
+    {
+      customerName: "Sophia Brown",
+      level: "Warga",
+      favoriteMenu: "Burger",
+      totalTransaction: "$300",
+    },
+  ];
+
   return (
     <div>
       <AdminLayout>
@@ -11,12 +83,12 @@ export default function Dashboard() {
             <div className=" p-5 h-48 bg-[#5D5FEF] rounded-3xl flex flex-col justify-between text-white">
               <h1 className="text-3xl font-semibold mb-2">Customer</h1>
               <div className="">
-              <h1 className="text-xl">
-                On this menu you will be able to create, edit, and also delete
-              </h1>
-              <h1 className="text-xl mb-1">
-                the customer. Also you can manage it easily.
-              </h1>
+                <h1 className="text-xl">
+                  On this menu you will be able to create, edit, and also delete
+                </h1>
+                <h1 className="text-xl mb-1">
+                  the customer. Also you can manage it easily.
+                </h1>
               </div>
               <div className="flex gap-4 justify-between">
                 <button className="bg-white bg-opacity-20  px-5 py-2 rounded-lg flex items-center w-1/5 justify-center">
@@ -34,56 +106,117 @@ export default function Dashboard() {
                   </button>
                 </form>
                 <button className="bg-white bg-opacity-20 flex gap-2 items-center px-5 py-2 rounded-lg w-1/8">
-                  <FiFilter size={25}  />
+                  <FiFilter size={25} />
                   Filter
                 </button>
                 <button className="bg-white bg-opacity-20 flex gap-2 items-center px-5 py-2 rounded-lg w-1/8">
-                  <FiRefreshCw size={25}  />
+                  <FiRefreshCw size={25} />
                   Refresh
                 </button>
                 <button className="bg-white bg-opacity-20  px-5 py-2 rounded-lg w-1/20">
-                  <FiPrinter size={25}  />
+                  <FiPrinter size={25} />
                 </button>
               </div>
             </div>
-            <table className="w-full border-collapse  text-gray-600">
-  <thead>
-    <tr className="bg-gray-100 text-left border-b-2 border-gray-200">
-      <th className="px-4 py-2   ">Customer Name</th>
-      <th className="px-4 py-2   ">Level</th>
-      <th className="px-4 py-2   ">Favorite Menu</th>
-      <th className="px-4 py-2  ">Total Transaction</th>
-      <th className="px-4 py-2  ">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr className="border-b border-gray-200 hover:bg-gray-100">
-      <td className="px-4 py-2 whitespace-no-wrap">John Doe</td>
-      <td className="px-4 py-2 whitespace-no-wrap">Gold</td>
-      <td className="px-4 py-2 whitespace-no-wrap">Burger</td>
-      <td className="px-4 py-2 whitespace-no-wrap">$500</td>
-    </tr>
-    <tr className="border-b border-gray-200 hover:bg-gray-100">
-      <td className="px-4 py-2 whitespace-no-wrap">Jane Smith</td>
-      <td className="px-4 py-2 whitespace-no-wrap">Silver</td>
-      <td className="px-4 py-2 whitespace-no-wrap">Pizza</td>
-      <td className="px-4 py-2 whitespace-no-wrap">$250</td>
-      <td className="px-4 py-2 whitespace-no-wrap">
-        <button>
-            <FiEdit size={25} />
-        </button>
-        <button>
-            <FiTrash size={25} />
-        </button>
-        <button>
-            <FiEye size={25} />
-        </button>
-        </td>
-    </tr>
-    {/* Add more rows as needed */}
-  </tbody>
-</table>
+            <table className="w-full border-collapse  text-gray-600 mt-4 ">
+              <thead>
+                <tr className="bg-gray-100 text-left border-b-2 border-gray-200 ">
+                  <th className="px-4 py-2 rounded-tl-xl">
+                    <div className="gap-4 flex justify-between items-center">
+                      <h1>Customer Name</h1>
+                      <button className="hover:bg-gray-200 p-1 rounded-xl">
+                        <FaSort />
+                      </button>
+                    </div>
+                  </th>
+                  <th className="px-4 py-2 ">
+                    <div className="gap-4 flex justify-between items-center">
+                      <h1>Level</h1>
 
+                      <button className="hover:bg-gray-200 p-1 rounded-xl">
+                        <FaSort />
+                      </button>
+                    </div>
+                  </th>
+                  <th className="px-4 py-2 ">
+                    <div className="gap-4 flex justify-between items-center">
+                      <h1>Favorite Menu</h1>
+                      <button className="hover:bg-gray-200 p-1 rounded-xl">
+                        <FaSort />
+                      </button>
+                    </div>
+                  </th>
+                  <th className="px-4 py-2 ">
+                    <div className="gap-4 flex justify-between items-center">
+                      <h1>Total Transaction</h1>
+                      <button className="hover:bg-gray-200 p-1 rounded-xl">
+                        <FaSort />
+                      </button>
+                    </div>
+                  </th>
+                  <th className="px-4 py-2  rounded-tr-xl">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {customerData.map((item, index) => {
+                  return (
+                    <tr
+                      key={index}
+                      className="border-b border-gray-200 hover:bg-gray-100 text-gray-900"
+                    >
+                      <td className="px-4 py-2 whitespace-no-wrap">
+                        {item.customerName}
+                      </td>
+                      <td className="px-4 py-2 whitespace-no-wrap">
+                        {item.level === "Warga" ? (
+                          <span className="text-[#F46B45] bg-[#FEFBF6] rounded-l px-4 py-2">
+                            {item.level}
+                          </span>
+                        ) : item.level === "Juragan" ? (
+                          <span className="text-[#2F80ED] bg-[#F6FCFE] rounded-l px-4 py-2">
+                            {item.level}
+                          </span>
+                        ) : item.level === "Konglomerat" ? (
+                          <span className="text-[#7F00FF] bg-[#FEF5FF] rounded-l px-4 py-2">
+                            {item.level}
+                          </span>
+                        ) : item.level === "Sultan" ? (
+                          <span className="text-[#11998E] bg-[#F6FEF9] rounded-l px-4 py-2">
+                            {item.level}
+                          </span>
+                        ) : (
+                          item.level
+                        )}
+                      </td>
+                      <td className="px-4 py-2 whitespace-no-wrap">
+                        {item.favoriteMenu}
+                      </td>
+                      <td className="px-4 py-2 whitespace-no-wrap">
+                        {item.totalTransaction}
+                      </td>
+                      <td className="px-4 py-2 whitespace-no-wrap flex justify-between">
+                        <button className="">
+                          <div className="flex gap-4 bg-[#FAFAFA] px-4 py-2 rounded-lg">
+                            <FiEye size={25} />
+                            <h1>Detail</h1>
+                          </div>
+                        </button>
+                        <button className="">
+                          <div className="flex gap-4 bg-[#FAFAFA] px-4 py-2 rounded-lg">
+                            <FiEdit size={25} />
+                          </div>
+                        </button>
+                        <button className="">
+                          <div className="flex gap-4 bg-[#FEF5F6] px-4 py-2 rounded-lg">
+                            <FiTrash size={25} color="#F02D3A" />
+                          </div>
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
           </div>
           <div className="w-1/5  bg-blue-500 h-full"></div>
         </div>
