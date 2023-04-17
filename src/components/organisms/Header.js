@@ -1,6 +1,6 @@
 export default function Header() {
   return (
-    <div className=" p-5 flex justify-between">
+    <div className=" px-5 py-2 flex justify-between">
       <div className="w-1/2 border-b-2 pb-4">
         <h1 className="text-3xl font-semibold text-gray-800">Customer</h1>
         <h1 className="text-xl  text-gray-800">
